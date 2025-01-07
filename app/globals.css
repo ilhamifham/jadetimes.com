@@ -1,0 +1,43 @@
+@tailwind base;
+
+@layer base {
+  *:focus-visible {
+    outline: 2px solid dodgerblue;
+    transition: none;
+    border-radius: 0px;
+    outline-offset: 1px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-heading;
+  }
+}
+
+@tailwind components;
+
+@layer components {
+  .inputStyles {
+    @apply text-[1.15rem] md:text-base placeholder:text-neutral-500 border-b-2 border-neutral-300 py-2 block mb-3 md:mb-0 pb-3 w-full focus-visible:outline-none focus-visible:border-b-2 lg:hover:border-b-neutral-900 focus:border-b-neutral-900 duration-300;
+  }
+}
+
+@tailwind utilities;
+
+@layer utilities {
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (min-width: 768px) and (min-height: 768px) {
+  .custom-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
