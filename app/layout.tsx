@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "@/app/globals.css";
-import Header from "@/app/headerComponent/Header";
-import Footer from "@/app/Footer";
-import AuthForm from "@/app/AuthForm";
+import Header from "@/app/components/header/Header";
+import Footer from "@/app/components/Footer";
+import AuthForm from "@/app/components/authform/AuthForm";
 import { SignInContextProvider } from "@/app/contexts/SignInContext";
 
 const poppins = Poppins({

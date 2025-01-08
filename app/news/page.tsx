@@ -1,6 +1,6 @@
-import Page from "@/app/components/Page";
+import PageDesign from "@/app/components/PageDesign";
 import posts from "@/app/data/posts";
 
-export default function News() {
-  return <Page articles={posts} />;
+export default function NewsPage() {
+  return <PageDesign articles={posts} />;
 }

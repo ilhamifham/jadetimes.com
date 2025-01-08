@@ -2,8 +2,8 @@
 
 import useSwitch from "@/app/hooks/useSwitch";
 import CloseButton from "@/app/components/CloseButton";
-import Register from "@/app/components/Register";
-import LogIn from "@/app/components/LogIn";
+import Register from "@/app/components/authform/Register";
+import LogIn from "@/app/components/authform/LogIn";
 import { useSignInContext } from "@/app/contexts/SignInContext";
 import useStopScroll from "@/app/hooks/useStopScroll";
 

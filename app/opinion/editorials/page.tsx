@@ -1,6 +1,6 @@
-import PageDesign from "../PageDesign";
+import PageDesignSecond from "@/app/components/PageDesignSecond";
 import posts from "@/app/data/posts";
 
-export default function Editorials() {
-  return <PageDesign name="Editorials" articles={posts} />;
+export default function EditorialsPage() {
+  return <PageDesignSecond name="Editorials" articles={posts} />;
 }

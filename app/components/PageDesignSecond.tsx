@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
-import SecondBigArticles from "../components/SecondBigArticles";
-import Section from "../components/Section";
-import H1 from "../components/H1";
-import H2 from "../components/H2";
-import PictureLink from "../components/PictureLink";
-import Pagination from "../components/Pagination";
+import SecondBigArticles from "./SecondBigArticles";
+import Section from "./Section";
+import H1 from "./H1";
+import H2 from "./H2";
+import PictureLink from "./PictureLink";
+import Pagination from "./Pagination";
 
 interface Post {
   link: string;
@@ -24,7 +24,7 @@ interface Props {
   articles: Post[];
 }
 
-const Hero = ({ name, articles }: Props) => {
+const PageDesignSecond = ({ name, articles }: Props) => {
   return (
     <>
       <Section className="pt-3 lg:max-w-[1280px]">
@@ -81,4 +81,4 @@ const Hero = ({ name, articles }: Props) => {
   );
 };
 
-export default Hero;
+export default PageDesignSecond;

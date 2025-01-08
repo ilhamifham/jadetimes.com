@@ -23,7 +23,7 @@ interface Props {
   articles: Post[];
 }
 
-const Page = ({ name, articles }: Props) => {
+const PageDesign = ({ name, articles }: Props) => {
   return (
     <>
       <Section className="pt-3 lg:max-w-[1280px]">
@@ -57,4 +57,4 @@ const Page = ({ name, articles }: Props) => {
   );
 };
 
-export default Page;
+export default PageDesign;

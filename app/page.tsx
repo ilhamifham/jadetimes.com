@@ -3,19 +3,19 @@ import Image from "next/image";
 import UpdatesLink from "@/app/components/UpdatesLink";
 import LinkToMembership from "@/app/components/LinkToMembership";
 import PictureLink from "@/app/components/PictureLink";
-import FirstSlider from "@/app/homeComponent/FirstSlider";
-import YouTubePlaylist from "@/app/homeComponent/YouTubePlaylist";
+import FirstSlider from "@/app/components/home/FirstSlider";
+import YouTubePlaylist from "@/app/components/home/YouTubePlaylist";
 import ThirdSlider from "@/app/components/ThirdSlider";
 import ThirdBigArticles from "@/app/components/ThirdBigArticles";
 import FourthBigArticles from "@/app/components/FourthBigArticles";
 import YouTubeArticle from "@/app/components/YouTubeArticle";
 import Iframe from "@/app/components/Iframe";
 import Section from "@/app/components/Section";
-import YouTubeShorts from "@/app/homeComponent/YouTubeShorts";
+import YouTubeShorts from "@/app/components/home/YouTubeShorts";
 import posts from "@/app/data/posts";
 import SpecialGraphics from "@/public/advertise/specialgraphics.webp";
 
-export default function Home() {
+export default function RootPage() {
   return (
     <>
       <Section element="div" className="relative sm:p-4 lg:max-w-[1280px]">

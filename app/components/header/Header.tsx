@@ -3,11 +3,11 @@ import Link from "next/link";
 import Logo from "@/public/logo-white.png";
 import LinkToHome from "@/app/components/LinkToHome";
 import LinkToMembership from "@/app/components/LinkToMembership";
-import TodayDate from "@/app/headerComponent/TodayDate";
+import TodayDate from "@/app/components/header/TodayDate";
 import SearchIcon from "@/app/components/SearchIcon";
 import SignInButton from "@/app/components/SignInButton";
-import SideNav from "@/app/headerComponent/SideNav";
-import TopNav from "@/app/headerComponent/TopNav";
+import SideNav from "@/app/components/header/SideNav";
+import TopNav from "@/app/components/header/TopNav";
 
 const Header = () => {
   return (
