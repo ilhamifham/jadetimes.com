@@ -18,8 +18,8 @@ export default function CookiePolicy() {
         <h2 className="font-medium lg:text-base">What Are Cookies?</h2>
         <p>
           Cookies are small text files that are placed on your computer or mobile device when you visit a website. They allow the website to recognize
-          your device and store information about your preferences or past actions. Cookies can be "persistent" or "session" cookies. Persistent
-          cookies remain on your device for a set period of time, while session cookies are deleted once you close your browser.
+          your device and store information about your preferences or past actions. Cookies can be &quot;persistent&quot; or &quot;session&quot;
+          cookies. Persistent cookies remain on your device for a set period of time, while session cookies are deleted once you close your browser.
         </p>
       </section>
       <section className="text-sm flex flex-col gap-4 mt-8">

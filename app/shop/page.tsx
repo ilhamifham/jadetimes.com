@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Section from "../components/Section";
 import shop from "@/public/shop.png";
 import HeroImage from "../components/HeroImage";
@@ -27,7 +28,7 @@ export default function Shop() {
               {product.new && <div className="bg-accent text-white w-fit px-2 uppercase text-lg font-semibold absolute top-0 left-0 z-10">New</div>}
               <Link href={product.link} className="block group">
                 <div className="relative">
-                  <img src={product.images?.[0]} alt={product.name} className="aspect-[9_/_12]" />
+                  <Image src={product.images?.[0]} alt={product.name} className="aspect-[9_/_12]" />
                   <div className="text-sm bg-white/80 backdrop-blur-sm p-3 absolute bottom-0 w-full text-center translate-y-full -z-[1] lg:duration-300 lg:group-hover:translate-y-0 lg:group-hover:z-0 lg:group-focus-visible:translate-y-0 lg:group-focus-visible:z-0">
                     Quick View
                   </div>

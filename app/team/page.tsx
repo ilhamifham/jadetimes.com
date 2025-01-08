@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "../components/Section";
 import HeroImage from "../components/HeroImage";
 import reporter from "@/public/reporter.png";
@@ -86,7 +87,7 @@ export default function Team() {
         <div className="flex gap-4 flex-wrap justify-center lg:gap-5 mt-4 lg:mb-1 md:grid md:grid-cols-3 lg:grid-cols-5">
           {teamMembers.map((teamMember, index) => (
             <div key={index} className="p-4 bg-neutral-900 text-white flex flex-col pb-3 max-w-72 lg:p-0">
-              <img src={teamMember.image} alt={teamMember.name} className="aspect-square" />
+              <Image src={teamMember.image} alt={teamMember.name} className="aspect-square" />
               <div className="flex flex-col gap-1 mt-4 lg:mt-3 lg:px-4 lg:pb-4">
                 <div className="text-2xl">{teamMember.name}</div>
                 <div className="text-accent text-lg lg:text-sm">{teamMember.role}</div>
