@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import useCarousel from "@/app/hooks/useCarousel";
 import useSwitch from "@/app/hooks/useSwitch";
@@ -21,6 +21,19 @@ const YouTubePlaylist = () => {
   const [youTubeVideos, setYouTubeVideos] = useState<Video[][]>([]);
   const [currentIndex, scrollRef, handleNextSlide, handlePreviousSlide] = useCarousel(youTubeVideos.length);
   const [isPlay, handlePlayOpen, handlePlayClose] = useSwitch();
+
+  const updateCurrentVideo = useCallback(
+    (index: number | null) => {
+      if (typeof index === "number") {
+        setCurrentVideo({
+          index: videos[index]?.index,
+          title: videos[index]?.title,
+          videoId: videos[index]?.videoId,
+        });
+      }
+    },
+    [videos]
+  );
 
   useEffect(() => {
     const getVideos = async () => {
@@ -55,17 +68,7 @@ const YouTubePlaylist = () => {
       playlist.push(videos.slice(i, i + 4));
     }
     setYouTubeVideos(playlist);
-  }, [videos]);
-
-  function updateCurrentVideo(index: number | null) {
-    if (typeof index === "number") {
-      setCurrentVideo({
-        index: videos[index]?.index,
-        title: videos[index]?.title,
-        videoId: videos[index]?.videoId,
-      });
-    }
-  }
+  }, [videos, updateCurrentVideo]);
 
   function handleCurrentVideo(index: number | null) {
     updateCurrentVideo(index);

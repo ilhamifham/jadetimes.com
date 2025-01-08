@@ -30,15 +30,6 @@ const SideNav = () => {
     event.stopPropagation();
   }
 
-  function handleSubscribe() {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      left: 0,
-      behavior: "smooth",
-    });
-    handleNavItem();
-  }
-
   return (
     <>
       <button className="flex items-center justify-center w-8 -order-1" onClick={handleNavOn} aria-label="menu slide in">
@@ -55,15 +46,16 @@ const SideNav = () => {
           onClick={stopHandleNav}
         >
           <SignInButton className="text-sm self-end my-[0.4rem] lg:hidden" />
-          <LinkToMembership className="w-fit text-sm mb-3 mt-4 lg:hidden" />
+          <LinkToMembership className="w-fit text-sm mb-3 mt-4 lg:hidden" onClick={handleNavItem} />
           <ul>
             <li>
-              <button
+              <Link
+                href="#subscribe-to-newsletter"
                 className="block w-fit font-semibold py-2 lg:text-[0.813rem] lg:font-normal lg:pt-[0.3rem] text-nowrap lg:mb-4"
-                onClick={handleSubscribe}
+                onClick={handleNavItem}
               >
                 Subscribe to newsletters
-              </button>
+              </Link>
             </li>
             {navigationPaths.map((path) => (
               <li className="lg:text-sm lg:border-b lg:border-b-neutral-800 last:border-b-0" key={path.key}>

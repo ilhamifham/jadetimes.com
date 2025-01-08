@@ -32,13 +32,16 @@ const Footer = () => {
             </div>
           </div>
           <form className="flex flex-col items-center gap-4 lg:flex-row">
-            <label htmlFor="subscription" className="uppercase block text-center text-lg lg:text-[0.8125rem] text-nowrap text-black lg:mb-0">
+            <label
+              htmlFor="subscribe-to-newsletter"
+              className="uppercase block text-center text-lg lg:text-[0.8125rem] text-nowrap text-black lg:mb-0"
+            >
               Sign up for our newsletter
             </label>
             <div className="flex flex-row gap-[1px] max-w-lg w-full">
               <input
                 className="text-sm w-full py-2 px-5 duration-300 placeholder:text-neutral-500 border-2 border-neutral-300 focus-visible:outline-none lg:w-96 lg:py-1 lg:hover:border-neutral-900 focus:border-neutral-900"
-                id="subscription"
+                id="subscribe-to-newsletter"
                 name="email"
                 type="email"
                 placeholder="Enter your email"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import CloseButton from "@/app/components/CloseButton";
 import ChevronIcon from "@/app/components/ChevronIcon";
@@ -27,6 +27,20 @@ const YouTubeShorts = () => {
   const [isPlay, handlePlayOn, handlePlayOff] = useSwitch();
   const [isPlayScreen, handlePlayScreenOn, handlePlayScreenOff] = useSwitch();
   useStopScroll(isPlayScreen);
+
+  const updateCurrentVideo = useCallback(
+    (index: number | null) => {
+      if (typeof index === "number") {
+        setCurrentVideo({
+          index: videos[index]?.index,
+          title: videos[index]?.title,
+          videoId: videos[index]?.videoId,
+          description: videos[index]?.description,
+        });
+      }
+    },
+    [videos]
+  );
 
   useEffect(() => {
     const getVideos = async () => {
@@ -61,18 +75,7 @@ const YouTubeShorts = () => {
       shortsSection.push(videos.slice(i, i + 5));
     }
     setYouTubeShorts(shortsSection);
-  }, [videos]);
-
-  function updateCurrentVideo(index: number | null) {
-    if (typeof index === "number") {
-      setCurrentVideo({
-        index: videos[index]?.index,
-        title: videos[index]?.title,
-        videoId: videos[index]?.videoId,
-        description: videos[index]?.description,
-      });
-    }
-  }
+  }, [videos, updateCurrentVideo]);
 
   function handleNextCurrentVideo() {
     if (typeof currentVideo.index === "number") {

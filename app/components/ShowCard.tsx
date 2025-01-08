@@ -1,7 +1,7 @@
 import Image from "next/image";
-import newsStudio from "../../public/show/1.webp";
-import photoStudio from "../../public/show/2.webp";
-import interviewStudio from "../../public/show/3.webp";
+import newsStudio from "@/public/show/news-studio.webp";
+import photoStudio from "@/public/show/photo-studio.webp";
+import interviewStudio from "@/public/show/interview-studio.webp";
 
 const shows = [
   {
@@ -26,7 +26,7 @@ const ShowCard = ({ className }: { className: string }) => {
     <ul className={className}>
       {shows.map((show, index) => (
         <li key={index} className="text-neutral-900">
-          <Image src={show.image} alt={show.description} className="aspect-video object-cover object-center" />
+          <Image src={show.image} alt={show.description} className="w-full aspect-video object-cover object-center" />
           <h2 className="font-semibold mb-1 mt-3">{show.title}</h2>
           <p className="text-sm">{show.description}</p>
         </li>
