@@ -1,14 +1,14 @@
-import Image from "next/image";
 import ContactDetails from "../components/ContactDetails";
 import ChevronIcon from "../components/ChevronIcon";
 import FormButton from "../components/FormButton";
 import Section from "../components/Section";
 import careers from "@/public/careers.png";
+import HeroImage from "../components/HeroImage";
 
 export default function Careers() {
   return (
     <>
-      <Image src={careers} alt="" className="w-full min-h-[488px] object-cover object-center" />
+      <HeroImage src={careers} />
       <Section className="p-4 lg:max-w-[1000px]">
         <h1 className="text-center text-2xl lg:text-4xl">Apply Jadetimes Media Today!</h1>
         <div className="text-xl text-center lg:text-2xl lg:mt-2">Available Positions</div>
@@ -52,7 +52,7 @@ export default function Careers() {
         </p>
         <div className="mt-6 md:grid md:grid-cols-2">
           <div>
-            <h2 className="text-xl text-center mb-6 lg:text-3xl">Submit Your Application Today!</h2>
+            <h2 className="text-xl font-medium text-center mb-6 lg:text-2xl">Submit Your Application Today!</h2>
             <form action="" className="text-sm flex flex-col gap-4 mt-4 md:pr-5">
               <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-4">
                 <div>

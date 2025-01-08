@@ -6,12 +6,13 @@ import ShowCard from "@/app/components/ShowCard";
 import Section from "@/app/components/Section";
 import greenArchitecture from "@/public/green-architecture.png";
 import officeBuilding from "@/public/office-building.png";
+import HeroImage from "@/app/components/HeroImage";
 
 export default function AboutUs() {
   return (
     <>
       <section className="relative">
-        <Image src={greenArchitecture} alt="" className="w-full min-h-[488px] object-cover object-center" />
+        <HeroImage src={greenArchitecture} />
         <div className="absolute top-8 left-1/2 -translate-x-1/2 text-center w-full">
           <h1 className="font-semibold text-2xl 2xl:text-3xl lg:mb-1">Learn more about what we do</h1>
           <p className="text-xs mb-4 2xl:text-sm">where we go beyond the ordinary to bring you exclusive insights.</p>

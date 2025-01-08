@@ -1,13 +1,13 @@
-import Image from "next/image";
 import Form from "../components/Form";
 import ContactDetails from "../components/ContactDetails";
 import Section from "../components/Section";
-import Reporter from "@/public/reporter.png";
+import reporter from "@/public/reporter.png";
+import HeroImage from "../components/HeroImage";
 
 export default function TalkToUs() {
   return (
     <>
-      <Image src={Reporter} alt="" className="w-full min-h-[488px] object-cover object-center" />
+      <HeroImage src={reporter} />
       <Section className="p-4">
         <h1 className="text-2xl font-semibold lg:text-3xl">Submit Your Query</h1>
         <div className="md:grid md:grid-cols-2">

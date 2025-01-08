@@ -139,7 +139,7 @@ const Footer = () => {
               <span className="mx-2">|</span>
             </li>
             <li>
-              <Link href="/about-us" className="duration-300 hover:underline">
+              <Link href="/about" className="duration-300 hover:underline">
                 About Jadetimes
               </Link>
               <span className="mx-2">|</span>
@@ -157,7 +157,7 @@ const Footer = () => {
               <span className="mx-2">|</span>
             </li>
             <li>
-              <Link href="/cookies-policy" className="duration-300 hover:underline">
+              <Link href="/cookie-policy" className="duration-300 hover:underline">
                 Cookies
               </Link>
               <span className="mx-2">|</span>

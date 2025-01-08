@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Section from "@/app/components/Section";
 import PricePlanCard from "@/app/components/PricePlanCard";
-import membershipImage from "@/public/membership.png";
+import membership from "@/public/membership.png";
 
 const memberBenefits = [
   {
@@ -65,7 +65,7 @@ export default function Membership() {
         </ul>
       </Section>
       <section className="p-4 flex flex-col gap-4 max-w-[900px]  lg:max-w-[1000px] mx-auto md:grid md:grid-cols-2 items-center md:gap-5 md:justify-between">
-        <Image src={membershipImage} alt="" />
+        <Image src={membership} alt="" />
         <div className="md:-order-1">
           <h2 className="text-xl font-semibold mb-4 lg:text-2xl">Community Access</h2>
           <p className="md:max-w-80">

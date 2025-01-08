@@ -6,7 +6,7 @@ const mobileNavigationPaths = [
   },
   {
     key: 1,
-    to: "/about-us",
+    to: "/about",
     name: "About Jadetimes",
   },
   {
@@ -21,7 +21,7 @@ const mobileNavigationPaths = [
   },
   {
     key: 4,
-    to: "/cookies-policy",
+    to: "/cookie-policy",
     name: "Cookies",
   },
   {
