@@ -71,11 +71,11 @@ export default function AdvertiseWithUs() {
           </li>
         ))}
       </ul>
-      <ShowCard className="mb-7 flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-5" />
+      <ShowCard className="mb-7 flex flex-col gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:gap-5" />
       <h2 className="text-2xl text-neutral-900 font-semibold">How to Report News To Us</h2>
       <div className="md:grid md:grid-cols-2">
-        <Form className="text-sm flex flex-col gap-4 mt-4 md:pr-5 md:border-r md:border-r-neutral-300" />
-        <div className="text-sm text-neutral-900 flex flex-col gap-6 mt-8 md:mt-4 md:pl-5">
+        <Form className="text-sm flex flex-col gap-4 mt-4 md:pr-4 lg:pr-5 md:border-r md:border-r-neutral-300" />
+        <div className="text-sm text-neutral-900 flex flex-col gap-6 mt-8 md:mt-4 md:pl-4 lg:pl-5">
           <ContactDetails />
         </div>
       </div>

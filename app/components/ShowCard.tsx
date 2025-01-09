@@ -1,7 +1,7 @@
 import Image from "next/image";
-import newsStudio from "@/public/show/news-studio.webp";
-import photoStudio from "@/public/show/photo-studio.webp";
-import interviewStudio from "@/public/show/interview-studio.webp";
+import newsStudio from "@/public/show/news-studio.png";
+import photoStudio from "@/public/show/photo-studio.png";
+import interviewStudio from "@/public/show/interview-studio.png";
 
 const shows = [
   {

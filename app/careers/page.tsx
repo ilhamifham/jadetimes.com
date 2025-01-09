@@ -12,7 +12,7 @@ export default function Careers() {
       <Section className="p-4 lg:max-w-[1000px]">
         <h1 className="text-center text-2xl lg:text-4xl">Apply Jadetimes Media Today!</h1>
         <div className="text-xl text-center lg:text-2xl lg:mt-2">Available Positions</div>
-        <div className="my-6 sm:grid sm:grid-cols-2 sm:gap-4">
+        <div className="my-6 sm:grid sm:grid-cols-2 sm:gap-4 lg:gap-5">
           <section className="mb-4">
             <h2 className="text-xl font-semibold mb-2">Internships Available</h2>
             <ul className="text-lg list-inside list-disc ml-4">
@@ -53,7 +53,7 @@ export default function Careers() {
         <div className="mt-6 md:grid md:grid-cols-2">
           <div>
             <h2 className="text-xl font-medium text-center mb-6 lg:text-2xl">Submit Your Application Today!</h2>
-            <form action="" className="text-sm flex flex-col gap-4 mt-4 md:pr-5">
+            <form action="" className="text-sm flex flex-col gap-4 mt-4 md:pr-4 lg:pr-5">
               <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-4">
                 <div>
                   <label htmlFor="name">
@@ -102,7 +102,7 @@ export default function Careers() {
                   <input
                     type="file"
                     id="cv"
-                    className="w-full border-2 duration-300 lg:hover:border-neutral-900 focus:border-neutral-900 focus-visible:outline-none mt-2 md:border-x-0 md:border-t-0 file:p-3 file:border-0 file:bg-neutral-200 file:mr-3"
+                    className="w-full border-2 border-neutral-300 duration-300 lg:hover:border-neutral-900 focus:border-neutral-900 focus-visible:outline-none mt-2 md:border-x-0 md:border-t-0 file:p-3 file:border-0 file:bg-neutral-200 file:mr-3"
                   />
                 </div>
               </div>
@@ -134,7 +134,7 @@ export default function Careers() {
               <FormButton className="text-base lg:max-w-72 lg:mx-auto lg:py-2">Submit Your Application</FormButton>
             </form>
           </div>
-          <div className="text-sm text-neutral-900 flex flex-col gap-6 mt-8 md:pl-5 md:mt-1 md:border-l border-neutral-300">
+          <div className="text-sm text-neutral-900 flex flex-col gap-6 mt-8 md:pl-4 lg:pl-5 md:mt-1 md:border-l border-neutral-300">
             <ContactDetails />
           </div>
         </div>

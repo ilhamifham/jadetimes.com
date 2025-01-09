@@ -95,7 +95,7 @@ const YouTubeShorts = () => {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-5 gap-5 p-5">
+      <div className="hidden lg:grid grid-cols-5 gap-5 p-5">
         {Array.from({ length: 5 }, (_, index) => index).map((_, index) => (
           <div key={index} className="animate-pulse">
             <div className="aspect-video bg-neutral-300"></div>

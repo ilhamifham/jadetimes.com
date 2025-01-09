@@ -13,7 +13,7 @@ import Iframe from "@/app/components/Iframe";
 import Section from "@/app/components/Section";
 import YouTubeShorts from "@/app/components/home/YouTubeShorts";
 import posts from "@/app/data/posts";
-import SpecialGraphics from "@/public/advertise/specialgraphics.webp";
+import SpecialGraphics from "@/public/advertise/specialgraphics.png";
 
 export default function RootPage() {
   return (

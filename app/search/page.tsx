@@ -26,7 +26,7 @@ export default function Search() {
           <SearchIcon className="w-5 text-black absolute left-[0.9rem] top-1/2 -translate-y-1/2" />
         </div>
       </div>
-      <div className="flex flex-col gap-4 py-4 md:grid md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col gap-4 py-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
         {posts.slice(currentIndex * pageItems - pageItems, pageItems * currentIndex).map((article, index) => (
           <article key={index} className="border border-neutral-300 p-4">
             <div className="flex flex-row gap-4 justify-between">

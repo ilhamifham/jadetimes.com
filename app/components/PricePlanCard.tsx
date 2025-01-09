@@ -23,9 +23,12 @@ const pricePlans = [
 
 const PricePlanCard = () => {
   return (
-    <ul className="text-center flex flex-col gap-4 md:flex-row justify-center lg:gap-5">
+    <ul className="text-center flex flex-col gap-4 justify-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:gap-5">
       {pricePlans.map((pricePlan, index) => (
-        <li key={index} className={`bg-white p-8 relative w-full md:order-none ${pricePlan.popular ? "-order-1" : ""}`.trim()}>
+        <li
+          key={index}
+          className={`bg-white p-8 relative w-full md:order-none ${pricePlan.popular ? "-order-1 sm:col-span-2 md:col-auto" : ""}`.trim()}
+        >
           <h2 className="uppercase text-lg lg:text-xl">{pricePlan.duration}</h2>
           <div className="my-6 md:mb-1">
             <div>

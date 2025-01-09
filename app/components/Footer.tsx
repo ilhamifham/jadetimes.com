@@ -3,7 +3,7 @@ import Image from "next/image";
 import LinkToHome from "@/app/components/LinkToHome";
 import navigationPaths from "@/app/data/navigationPaths";
 import mobileNavigationPaths from "@/app/data/mobileNavigationPaths";
-import Logo from "@/public/footer-logo.png";
+import Logo from "@/public//logo/footer-logo.png";
 
 const Footer = () => {
   return (

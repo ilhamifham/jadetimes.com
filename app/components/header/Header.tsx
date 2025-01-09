@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/logo-white.png";
+import Logo from "@/public/logo/logo-white.png";
 import LinkToHome from "@/app/components/LinkToHome";
 import LinkToMembership from "@/app/components/LinkToMembership";
 import TodayDate from "@/app/components/header/TodayDate";

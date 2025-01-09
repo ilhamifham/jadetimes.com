@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${poppins.variable} antialiased text-neutral-900 scroll-smooth scroll-pt-24 lg:scroll-pt-36`}>
+    <html lang="en" className={`${poppins.variable} antialiased text-neutral-900`}>
       <body>
         <SignInContextProvider>
           <Header />

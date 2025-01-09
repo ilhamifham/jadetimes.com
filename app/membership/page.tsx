@@ -37,8 +37,8 @@ export default function Membership() {
     <>
       <section className="bg-neutral-900">
         <div className="p-4 lg:py-5 max-w-[900px] lg:max-w-[1000px] mx-auto">
-          <h1 className="text-2xl text-white text-center font-semibold mb-4 lg:text-[2.5rem]">Accelerate Your Growth</h1>
-          <p className="text-lg text-white text-center mb-[2.375rem] lg:text-base">
+          <h1 className="text-2xl text-white text-center font-semibold mb-4 lg:text-[2.5rem] lg:mt-5">Accelerate Your Growth</h1>
+          <p className="text-lg text-white text-center mb-12 lg:text-base">
             Gain unlimited insights and exclusive benefits. Become a Jadetimes member for only $1.00 per week.
           </p>
           <PricePlanCard />
@@ -64,11 +64,11 @@ export default function Membership() {
           ))}
         </ul>
       </Section>
-      <section className="p-4 flex flex-col gap-4 max-w-[900px]  lg:max-w-[1000px] mx-auto md:grid md:grid-cols-2 items-center md:gap-5 md:justify-between">
-        <Image src={membership} alt="" />
+      <section className="p-4 flex flex-col gap-4 max-w-[900px] lg:max-w-[1000px] mx-auto md:grid md:grid-cols-2 items-center lg:gap-5 sm:justify-between">
+        <Image src={membership} alt="" className="w-full aspect-video" />
         <div className="md:-order-1">
           <h2 className="text-xl font-semibold mb-4 lg:text-2xl">Community Access</h2>
-          <p className="md:max-w-80">
+          <p>
             Join a community of like minded individuals. Participate in forums and discussion groups to share ideas, network, and collaborate with
             other JadeTimes members.
           </p>
