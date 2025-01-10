@@ -7,9 +7,9 @@ const caudex = Caudex({
   subsets: ["latin"],
 });
 
-export default function Post({ params }: { params: { post: string } }) {
-  const text = params.post;
-  const slicedText = text.split("-");
+export default async function Post({ params }: { params: Promise<{ post: string }> }) {
+  const { post } = await params;
+  const slicedText = post.split("-");
   const title = slicedText.join(" ");
   return (
     <div>

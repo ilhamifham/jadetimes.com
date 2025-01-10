@@ -45,16 +45,12 @@ const YouTubeShorts = () => {
   useEffect(() => {
     const getVideos = async () => {
       try {
-        const res = await fetch("https://ilhamifham.github.io/data/youtube/shorts.json");
-        if (!res.ok) {
-          throw new Error(`Error fetching playlist: ${res.status}`);
+        const response = await fetch("/api/youtubeshorts");
+        if (!response.ok) {
+          throw new Error(`Error fetching shorts: ${response.status}`);
         }
-        const data = await res.json();
-        const items = data.reverse().map((video: Video, index: number) => ({
-          ...video,
-          index: index,
-        }));
-        setVideos(items);
+        const data = await response.json();
+        setVideos(data);
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
@@ -71,8 +67,8 @@ const YouTubeShorts = () => {
   useEffect(() => {
     updateCurrentVideo(0);
     const shortsSection = [];
-    for (let i = 0; i < videos.length; i += 5) {
-      shortsSection.push(videos.slice(i, i + 5));
+    for (let i = 0; i < videos.length; i += 6) {
+      shortsSection.push(videos.slice(i, i + 6));
     }
     setYouTubeShorts(shortsSection);
   }, [videos, updateCurrentVideo]);
@@ -95,8 +91,8 @@ const YouTubeShorts = () => {
 
   if (loading) {
     return (
-      <div className="hidden lg:grid grid-cols-5 gap-5 p-5">
-        {Array.from({ length: 5 }, (_, index) => index).map((_, index) => (
+      <div className="hidden lg:grid grid-cols-6 gap-5 p-5">
+        {Array.from({ length: 6 }, (_, index) => index).map((_, index) => (
           <div key={index} className="animate-pulse">
             <div className="aspect-video bg-neutral-300"></div>
             <div className="mt-3 bg-neutral-300 h-5"></div>
@@ -117,12 +113,12 @@ const YouTubeShorts = () => {
     <div className={`${isPlayScreen ? "bg-neutral-900 fixed top-0 bottom-0 left-0 right-0 z-50 flex flex-col" : ""}`}>
       <div className="relative p-5 mb-auto order-1 hidden lg:block">
         <div className="flex flex-row overflow-x-hidden gap-5 snap-x snap-mandatory peer" ref={scrollRef}>
-          {youTubeShorts.map((section, index) => (
+          {youTubeShorts.map((shorts, index) => (
             <div
               key={index}
-              className={`grid grid-cols-5 w-full flex-none gap-5 snap-center duration-1000 ${currentIndex === index ? "visible" : "invisible"}`}
+              className={`grid grid-cols-6 w-full flex-none gap-5 snap-center duration-1000 ${currentIndex === index ? "visible" : "invisible"}`}
             >
-              {section.map((video) => (
+              {shorts.map((video) => (
                 <div key={video.index} className={`aspect-video ${isPlayScreen ? "border border-neutral-700" : ""}`.trim()}>
                   <div className={`relative ${!isPlayScreen ? "mb-4" : ""}`.trim()}>
                     <Image
@@ -141,7 +137,6 @@ const YouTubeShorts = () => {
                         <div>Now Playing</div>
                       ) : (
                         <>
-                          {isPlayScreen && <p className="mb-3 line-clamp-2">{video.title}</p>}
                           <PlayButton
                             className="w-10"
                             onClick={() => {
@@ -149,7 +144,7 @@ const YouTubeShorts = () => {
                               updateCurrentVideo(video.index);
                               handlePlayOn();
                             }}
-                            ariaLabel="play"
+                            ariaLabel={`play ${video.title}`}
                           />
                         </>
                       )}
