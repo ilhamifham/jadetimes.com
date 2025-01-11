@@ -41,7 +41,15 @@ const CopyLinkButton = () => {
       )}
       {isShareModal && (
         <div className="bg-[#00000080] fixed top-0 bottom-0 left-0 right-0 p-4 flex items-center justify-center z-40">
-          <div className="bg-white max-w-[600px] w-full text-center p-4 font-medium">Share Post</div>
+          <div className="bg-white max-w-[600px] w-full text-center p-4 shadow-lg flex flex-col gap-3 items-center justify-center">
+            <p>Share post</p>
+            <button className="bg-neutral-300 text-sm font-medium flex flex-row gap-2 p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5" viewBox="0 0 16 16">
+                <path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+              </svg>
+              Copy link
+            </button>
+          </div>
           <div className="absolute top-0 left-0 right-0 p-4 max-w-[1376px] mx-auto">
             <div className="ml-auto flex items-center justify-center w-8 h-8 lg:h-[2.0625rem] bg-[#0b0b0b]">
               <CloseButton className="text-white w-[1.7rem]" onClick={handleShareModalOff} ariaLabel="share window pop out" />

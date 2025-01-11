@@ -153,7 +153,9 @@ const YouTubeShorts = () => {
                   {!isPlayScreen && (
                     <>
                       <p className="text-heading font-semibold mb-3 line-clamp-2">{video.title}</p>
-                      <p className="line-clamp-2 text-xs">{video.description}</p>
+                      <p className="line-clamp-2 text-xs">
+                        {video.description.split("\n")[0]} {video.description.split("\n")[2]}
+                      </p>
                     </>
                   )}
                 </div>
@@ -205,7 +207,11 @@ const YouTubeShorts = () => {
             </div>
             <div className="col-span-3 overflow-y-auto">
               <p className="text-white text-2xl mb-4">{currentVideo.title}</p>
-              <p className="text-neutral-300">{currentVideo.description}</p>
+              <p className="text-sm text-neutral-500 font-medium mb-4">Jadetimes</p>
+              <p className="text-neutral-300">
+                {currentVideo.description.split("\n")[0]} {currentVideo.description.split("\n")[2]}
+              </p>
+              <p className="text-neutral-300"></p>
             </div>
             <div className="col-span-1 flex items-center justify-center col-start-10">
               {currentVideo.index !== videos.length - 1 && (
