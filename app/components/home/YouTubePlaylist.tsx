@@ -151,8 +151,10 @@ const YouTubePlaylist = () => {
       <div className="flex flex-row gap-5 overflow-x-hidden snap-x snap-mandatory" ref={scrollRef}>
         {youTubeVideos.map((articles, index) => (
           <div
-            className={`grid grid-cols-4 w-full flex-none gap-5 snap-center duration-1000 ${currentIndex === index ? "visible" : "invisible"}`}
+            className="grid grid-cols-4 w-full flex-none gap-5 snap-center duration-1000"
             key={index}
+            aria-hidden={currentIndex !== index}
+            inert={currentIndex !== index}
           >
             {articles.map((article) => (
               <article className="text-sm w-full h-full cursor-pointer group" onClick={() => handleCurrentVideo(article.index)} key={article.index}>

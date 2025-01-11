@@ -57,7 +57,7 @@ const ThirdSlider = ({ articles, className }: Props) => {
   };
 
   return (
-    <div className={`relative h-[800px] ${className}`}>
+    <div className={`relative h-[800px] max-w-[2520px] mx-auto ${className}`}>
       <div className="flex flex-col overflow-y-hidden h-[800px] relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         {articles.map((article, index) => (
           <article

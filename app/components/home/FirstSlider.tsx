@@ -31,7 +31,12 @@ const FirstSlider = ({ articles }: Props) => {
       <div className="relative">
         <div className="flex flex-row overflow-x-hidden snap-x snap-mandatory" ref={scrollRef}>
           {articles.map((article, index) => (
-            <article key={index} className={`${currentIndex === index ? "visible" : "invisible"} snap-end flex-none w-full duration-1000`}>
+            <article
+              key={index}
+              className="snap-end flex-none w-full duration-1000"
+              inert={currentIndex !== index}
+              aria-hidden={currentIndex !== index}
+            >
               <PictureLink link={article.link}>
                 <Image src={article.image} alt={article.title} />
               </PictureLink>

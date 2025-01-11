@@ -23,7 +23,7 @@ export default function Search() {
             placeholder="What are you looking for ?"
             autoFocus
           />
-          <SearchIcon className="w-5 text-black absolute left-[0.9rem] top-1/2 -translate-y-1/2" />
+          <SearchIcon className="w-5 text-black absolute left-[0.9rem] top-1/2 -translate-y-1/2 -z-[1]" />
         </div>
       </div>
       <div className="flex flex-col gap-4 py-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">

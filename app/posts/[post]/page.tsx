@@ -7,10 +7,7 @@ const caudex = Caudex({
   subsets: ["latin"],
 });
 
-export default async function Post({ params }: { params: Promise<{ post: string }> }) {
-  const { post } = await params;
-  const slicedText = post.split("-");
-  const title = slicedText.join(" ");
+export default async function Post() {
   return (
     <div>
       <article className="p-4 max-w-[900px] mx-auto">
@@ -24,7 +21,7 @@ export default async function Post({ params }: { params: Promise<{ post: string 
           </div>
           <CopyLinkButton />
         </div>
-        <h1 className={`text-3xl font-medium mb-4 lg:text-4xl font-serif text-neutral-600 capitalize ${caudex.className}`}>{title}</h1>
+        <h1 className={`text-3xl font-medium mb-4 lg:text-4xl font-serif text-neutral-600 capitalize ${caudex.className}`}>Title of the post</h1>
         <div>
           <div className="mb-1 lg:text-sm">
             Jadetimes Staff - <span className="font-medium">Author name</span>

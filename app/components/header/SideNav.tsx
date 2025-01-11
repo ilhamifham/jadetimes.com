@@ -1,7 +1,6 @@
 "use client";
 
 import { MouseEvent, useRef } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import useSwitch from "@/app/hooks/useSwitch";
 import useKey from "@/app/hooks/useKey";
@@ -14,7 +13,6 @@ import ChevronIcon from "@/app/components/ChevronIcon";
 import CloseButton from "@/app/components/CloseButton";
 
 const SideNav = () => {
-  const pathname = usePathname();
   const [isNav, handleNavOn, handleNavOff] = useSwitch();
   const [key, handleKey] = useKey(null);
   const scrollTopRef = useRef<HTMLDivElement>(null);
@@ -61,11 +59,7 @@ const SideNav = () => {
               <li className="lg:text-sm lg:border-b lg:border-b-neutral-800 last:border-b-0" key={path.key}>
                 {path.submenus ? (
                   <div className="flex flex-row justify-between">
-                    <Link
-                      href={path.to}
-                      onClick={handleNavItem}
-                      className={`block py-2 w-3/4 flex-grow ${pathname === path.to ? "text-accent" : "text-white"}`}
-                    >
+                    <Link href={path.to} onClick={handleNavItem} className="block py-2 w-3/4 flex-grow text-white">
                       {path.name}
                     </Link>
                     <button className="flex items-center justify-end w-1/4" onClick={() => handleKey(path.key)}>
@@ -77,11 +71,7 @@ const SideNav = () => {
                     </button>
                   </div>
                 ) : (
-                  <Link
-                    href={path.to}
-                    onClick={handleNavItem}
-                    className={`block py-2 flex-grow ${pathname === path.to ? "text-accent" : "text-white"}`}
-                  >
+                  <Link href={path.to} onClick={handleNavItem} className="block py-2 flex-grow text-white">
                     {path.name}
                   </Link>
                 )}

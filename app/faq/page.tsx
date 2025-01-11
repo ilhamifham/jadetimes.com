@@ -64,7 +64,7 @@ export default function Faq() {
             placeholder="Looking for somthing ?"
             className="py-2 pl-9 pr-2 border-b-2 border-b-neutral-300 w-full placeholder:text-neutral-500 focus:border-b-neutral-900 focus:outline-none lg:hover:border-b-neutral-900"
           />
-          <SearchIcon className="text-black absolute left-2 top-1/2 -translate-y-1/2 w-5" />
+          <SearchIcon className="text-black absolute left-2 top-1/2 -translate-y-1/2 w-5 -z-[1]" />
         </div>
         <section className="mt-6">
           <h2 className="text-accent mb-2">General</h2>

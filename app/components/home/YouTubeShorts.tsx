@@ -22,8 +22,7 @@ const YouTubeShorts = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState<Video>({ index: null, videoId: "", title: "", description: "" });
-  const [youTubeShorts, setYouTubeShorts] = useState<Video[][]>([]);
-  const [currentIndex, scrollRef, handleNextSlide, handlePreviousSlide] = useCarousel(youTubeShorts.length);
+  const [currentIndex, scrollRef, handleNextSlide, handlePreviousSlide] = useCarousel(videos.length);
   const [isPlay, handlePlayOn, handlePlayOff] = useSwitch();
   const [isPlayScreen, handlePlayScreenOn, handlePlayScreenOff] = useSwitch();
   useStopScroll(isPlayScreen);
@@ -66,11 +65,6 @@ const YouTubeShorts = () => {
 
   useEffect(() => {
     updateCurrentVideo(0);
-    const shortsSection = [];
-    for (let i = 0; i < videos.length; i += 6) {
-      shortsSection.push(videos.slice(i, i + 6));
-    }
-    setYouTubeShorts(shortsSection);
   }, [videos, updateCurrentVideo]);
 
   function handleNextCurrentVideo() {
@@ -91,16 +85,18 @@ const YouTubeShorts = () => {
 
   if (loading) {
     return (
-      <div className="hidden lg:grid grid-cols-6 gap-5 p-5">
-        {Array.from({ length: 6 }, (_, index) => index).map((_, index) => (
-          <div key={index} className="animate-pulse">
-            <div className="aspect-video bg-neutral-300"></div>
-            <div className="mt-3 bg-neutral-300 h-5"></div>
-            <div className="bg-neutral-300 h-5 mt-2"></div>
-            <div className="mt-4 bg-neutral-300 h-3"></div>
-            <div className="bg-neutral-300 h-3 mt-2"></div>
-          </div>
-        ))}
+      <div className="hidden lg:block p-5 mx-auto max-w-[2560px]">
+        <div className="flex flex-row gap-5 overflow-x-hidden">
+          {Array.from({ length: 8 }, (_, index) => index).map((_, index) => (
+            <div key={index} className="animate-pulse w-80 flex-none">
+              <div className="aspect-video bg-neutral-300"></div>
+              <div className="mt-3 bg-neutral-300 h-5"></div>
+              <div className="bg-neutral-300 h-5 mt-2"></div>
+              <div className="mt-4 bg-neutral-300 h-3"></div>
+              <div className="bg-neutral-300 h-3 mt-2"></div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -110,60 +106,57 @@ const YouTubeShorts = () => {
   }
 
   return (
-    <div className={`${isPlayScreen ? "bg-neutral-900 fixed top-0 bottom-0 left-0 right-0 z-50 flex flex-col" : ""}`}>
-      <div className="relative p-5 mb-auto order-1 hidden lg:block">
+    <div
+      className={`${
+        isPlayScreen ? "bg-neutral-900 fixed top-0 bottom-0 left-0 right-0 z-50 flex flex-col" : "hidden lg:block max-w-[2560px] mx-auto"
+      }`}
+    >
+      <div className="relative p-5 mb-auto order-1">
         <div className="flex flex-row overflow-x-hidden gap-5 snap-x snap-mandatory peer" ref={scrollRef}>
-          {youTubeShorts.map((shorts, index) => (
-            <div
-              key={index}
-              className={`grid grid-cols-6 w-full flex-none gap-5 snap-center duration-1000 ${currentIndex === index ? "visible" : "invisible"}`}
-            >
-              {shorts.map((video) => (
-                <div key={video.index} className={`aspect-video ${isPlayScreen ? "border border-neutral-700" : ""}`.trim()}>
-                  <div className={`relative ${!isPlayScreen ? "mb-4" : ""}`.trim()}>
-                    <Image
-                      src={`https://i.ytimg.com/vi/${video.videoId}/mqdefault.jpg`}
-                      alt=""
-                      className="absolute top-0 w-full object-cover object-center -z-[1]"
-                      width={488}
-                      height={275}
-                    />
-                    <div
-                      className={`bg-[#00000080] aspect-video flex flex-col items-center justify-center p-4 font-medium text-white text-center  ${
-                        isPlayScreen && currentVideo.index !== video.index ? "duration-300 opacity-0 hover:opacity-100 focus-within:opacity-100" : ""
-                      }`.trim()}
-                    >
-                      {isPlay && currentVideo.index === video.index ? (
-                        <div>Now Playing</div>
-                      ) : (
-                        <>
-                          <PlayButton
-                            className="w-10"
-                            onClick={() => {
-                              handlePlayScreenOn();
-                              updateCurrentVideo(video.index);
-                              handlePlayOn();
-                            }}
-                            ariaLabel={`play ${video.title}`}
-                          />
-                        </>
-                      )}
-                    </div>
-                  </div>
-                  {!isPlayScreen && (
+          {videos.map((video) => (
+            <div key={video.index} className={`aspect-video flex-none w-80 snap-start ${isPlayScreen ? "border border-neutral-700" : ""}`.trim()}>
+              <div className={`relative ${!isPlayScreen ? "mb-4" : ""}`.trim()}>
+                <Image
+                  src={`https://i.ytimg.com/vi/${video.videoId}/mqdefault.jpg`}
+                  alt=""
+                  className="absolute top-0 w-full object-cover object-center -z-[1]"
+                  width={488}
+                  height={275}
+                />
+                <div
+                  className={`bg-[#00000080] aspect-video flex flex-col items-center justify-center p-4 font-medium text-white text-center  ${
+                    isPlayScreen && currentVideo.index !== video.index ? "duration-300 opacity-0 hover:opacity-100 focus-within:opacity-100" : ""
+                  }`.trim()}
+                >
+                  {isPlay && currentVideo.index === video.index ? (
+                    <div>Now Playing</div>
+                  ) : (
                     <>
-                      <p className="text-heading font-semibold mb-3 line-clamp-2">{video.title}</p>
-                      <p className="line-clamp-2 text-xs">
-                        {video.description.split("\n")[0]} {video.description.split("\n")[2]}
-                      </p>
+                      <PlayButton
+                        className="w-10"
+                        onClick={() => {
+                          handlePlayScreenOn();
+                          updateCurrentVideo(video.index);
+                          handlePlayOn();
+                        }}
+                        ariaLabel={`play ${video.title}`}
+                      />
                     </>
                   )}
                 </div>
-              ))}
+              </div>
+              {!isPlayScreen && (
+                <>
+                  <p className="text-heading font-semibold mb-3 line-clamp-2">{video.title}</p>
+                  <p className="line-clamp-2 text-xs">
+                    {video.description.split("\n")[0]} {video.description.split("\n")[2]}
+                  </p>
+                </>
+              )}
             </div>
           ))}
         </div>
-        {currentIndex !== youTubeShorts.length - 1 && (
+        {currentIndex !== videos.length && (
           <button
             className="absolute text-black bg-white border border-neutral-300 shadow-lg rounded-full p-2 duration-300 opacity-0 peer-hover:opacity-100 hover:opacity-100 focus:opacity-100 flex top-1/2 -translate-y-1/2 focus:rounded-full right-9"
             onClick={handleNextSlide}

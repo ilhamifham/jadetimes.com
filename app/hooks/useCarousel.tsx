@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
 
-const useCarousel = (
-  length: number
-): [number, React.RefObject<HTMLDivElement | null>, () => void, () => void] => {
+const useCarousel = (length: number): [number, React.RefObject<HTMLDivElement | null>, () => void, () => void] => {
   const [index, setIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
