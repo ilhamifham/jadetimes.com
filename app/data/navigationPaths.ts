@@ -132,6 +132,18 @@ const navigationPaths = [
     to: "/law",
     name: "Law",
   },
+  {
+    key: 14,
+    to: "/journals",
+    name: "Journals",
+    submenus: [
+      {
+        key: 0,
+        to: "/journals/jadetimes-journal-of-universal-studies",
+        name: "Jadetimes Journal of Universal Studies",
+      },
+    ],
+  },
 ];
 
 export default navigationPaths;

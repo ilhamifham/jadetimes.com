@@ -56,7 +56,7 @@ const SideNav = () => {
               </Link>
             </li>
             {navigationPaths.map((path) => (
-              <li className="lg:text-sm lg:border-b lg:border-b-neutral-800 last:border-b-0" key={path.key}>
+              <li className="lg:text-sm lg:border-b lg:border-b-neutral-800" key={path.key}>
                 {path.submenus ? (
                   <div className="flex flex-row justify-between">
                     <Link href={path.to} onClick={handleNavItem} className="block py-2 w-3/4 flex-grow text-white">
@@ -71,7 +71,7 @@ const SideNav = () => {
                     </button>
                   </div>
                 ) : (
-                  <Link href={path.to} onClick={handleNavItem} className="block py-2 flex-grow text-white">
+                  <Link href={path.to} onClick={handleNavItem} className="block py-2 text-white">
                     {path.name}
                   </Link>
                 )}
@@ -92,6 +92,26 @@ const SideNav = () => {
                 )}
               </li>
             ))}
+            <li className="text-sm border-b border-b-neutral-800 hidden lg:block">
+              <Link href="/team" onClick={handleNavItem} className="block py-2 text-white">
+                Team
+              </Link>
+            </li>
+            <li className="text-sm border-b border-b-neutral-800 hidden lg:block">
+              <Link href="/store" onClick={handleNavItem} className="block py-2 text-white">
+                Jadetimes Store
+              </Link>
+            </li>
+            <li className="text-sm border-b border-b-neutral-800 hidden lg:block">
+              <Link href="/advertise-with-us" onClick={handleNavItem} className="block py-2 text-white">
+                Get Published Online Articles
+              </Link>
+            </li>
+            <li className="text-sm hidden lg:block">
+              <Link href="/careers" onClick={handleNavItem} className="block py-2 text-white">
+                Join Jadetimes Media
+              </Link>
+            </li>
           </ul>
           <ul className="border-t border-neutral-700 mt-3 py-4 lg:hidden">
             {mobileNavigationPaths.map((path) => (

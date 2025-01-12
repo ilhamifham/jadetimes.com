@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import Section from "@/app/components/Section";
-import shop from "@/public/shop.png";
+import storeBanner from "@/public/store/store-banner.png";
 import HeroImage from "@/app/components/HeroImage";
-import product from "@/public/product/product.jpg";
+import product from "@/public/store/product.jpg";
 
 const products = [
   {
@@ -13,14 +13,14 @@ const products = [
     price: "44.00",
     images: product,
     new: true,
-    link: "/products/rising-brands-2024-by-jadetimes",
+    link: "/store/rising-brands-2024-by-jadetimes",
   },
 ];
 
-export default function Shop() {
+export default function Store() {
   return (
     <>
-      <HeroImage src={shop} />
+      <HeroImage src={storeBanner} />
       <Section className="p-4 lg:max-w-[1000px]">
         <h1 className="text-2xl text-center md:text-3xl lg:text-4xl">Shop</h1>
         <ul className="flex flex-wrap gap-4 mt-5 items-center justify-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:gap-5 lg:grid-cols-4">
@@ -35,11 +35,11 @@ export default function Shop() {
                   </div>
                 </div>
                 <div className="text-lg flex flex-col gap-2 pt-4 bg-white">
-                  <h2>{product.name}</h2>
+                  <h2 className="font-medium">{product.name}</h2>
                   <div className="text-neutral-700">${product.price}</div>
                 </div>
               </Link>
-              <button className="bg-neutral-900 text-white p-3 w-full mt-3">Pre-Order</button>
+              <button className="bg-neutral-900 text-white p-2 w-full mt-3">Pre-Order</button>
             </li>
           ))}
         </ul>

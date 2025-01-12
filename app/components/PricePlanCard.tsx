@@ -23,7 +23,7 @@ const pricePlans = [
 
 const PricePlanCard = () => {
   return (
-    <ul className="text-center flex flex-col gap-4 justify-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:gap-5">
+    <ul className="text-center flex flex-col gap-4 justify-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:gap-5" id="price-plans">
       {pricePlans.map((pricePlan, index) => (
         <li
           key={index}

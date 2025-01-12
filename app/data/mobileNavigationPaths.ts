@@ -36,8 +36,8 @@ const mobileNavigationPaths = [
   },
   {
     key: 7,
-    to: "/shop",
-    name: "Jadetimes Shop",
+    to: "/store",
+    name: "Jadetimes Store",
   },
 ];
 

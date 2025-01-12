@@ -57,7 +57,7 @@ export default function Careers() {
               <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-4">
                 <div>
                   <label htmlFor="name">
-                    Full name <span className="text-accent">*</span>
+                    Full Name <span className="text-accent">*</span>
                   </label>
                   <input
                     id="name"
@@ -102,7 +102,7 @@ export default function Careers() {
                   <input
                     type="file"
                     id="cv"
-                    className="w-full border-2 border-neutral-300 duration-300 lg:hover:border-neutral-900 focus:border-neutral-900 focus-visible:outline-none mt-2 md:border-x-0 md:border-t-0 file:p-3 file:border-0 file:bg-neutral-200 file:mr-3"
+                    className="w-full border-2 border-neutral-300 duration-300 lg:hover:border-neutral-900 focus:border-neutral-900 focus-visible:outline-none mt-2 md:border-x-0 md:border-t-0 file:p-3 file:border-0 file:bg-neutral-300 file:mr-3"
                   />
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function Careers() {
                       <option value="vacancies">Vacancies</option>
                       <option value="jadetimes-contributor<">Jadetimes Contributor</option>
                     </select>
-                    <ChevronIcon className="w-5 absolute right-3 top-1/2 -translate-y-1/2 rotate-90" />
+                    <ChevronIcon className="w-5 absolute right-3 top-1/2 -translate-y-1/2 rotate-90 -z-[1]" />
                   </div>
                 </div>
                 <div>

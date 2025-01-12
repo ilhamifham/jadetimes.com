@@ -188,8 +188,8 @@ const Footer = () => {
               <span className="mx-2">|</span>
             </li>
             <li>
-              <Link href="/shop" className="duration-300 hover:underline">
-                Jadetimes Shop
+              <Link href="/store" className="duration-300 hover:underline">
+                Jadetimes Store
               </Link>
               <span className="mx-2">|</span>
             </li>

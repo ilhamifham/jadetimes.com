@@ -13,7 +13,7 @@ import Iframe from "@/app/components/Iframe";
 import Section from "@/app/components/Section";
 import YouTubeShorts from "@/app/components/home/YouTubeShorts";
 import posts from "@/app/data/posts";
-import SpecialGraphics from "@/public/advertise/specialgraphics.png";
+import SpecialGraphics from "@/public/adds/specialgraphics.png";
 
 export default function RootPage() {
   return (
@@ -90,7 +90,7 @@ export default function RootPage() {
           aria-label="visit digit us tec global website"
         >
           <video autoPlay loop muted playsInline width={117} height={439}>
-            <source src="/advertise/digitustecglobal.mp4" type="video/mp4" />
+            <source src="/adds/digitustecglobal.mp4" type="video/mp4" />
           </video>
         </a>
         <a
@@ -100,7 +100,7 @@ export default function RootPage() {
           aria-label="visit special printers website"
         >
           <video autoPlay loop muted playsInline width={117} height={439}>
-            <source src="/advertise/specialprinters.mp4" type="video/mp4" />
+            <source src="/adds/specialprinters.mp4" type="video/mp4" />
           </video>
         </a>
       </Section>
