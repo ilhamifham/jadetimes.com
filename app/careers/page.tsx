@@ -1,9 +1,9 @@
-import ContactDetails from "../components/ContactDetails";
-import ChevronIcon from "../components/ChevronIcon";
-import FormButton from "../components/FormButton";
-import Section from "../components/Section";
+import ContactDetails from "../../components/ContactDetails";
+import ChevronIcon from "../../components/ChevronIcon";
+import FormButton from "../../components/FormButton";
+import Section from "../../components/Section";
 import careers from "@/public/careers.png";
-import HeroImage from "../components/HeroImage";
+import HeroImage from "../../components/HeroImage";
 
 export default function Careers() {
   return (
@@ -119,7 +119,7 @@ export default function Careers() {
                       <option value="vacancies">Vacancies</option>
                       <option value="jadetimes-contributor<">Jadetimes Contributor</option>
                     </select>
-                    <ChevronIcon className="w-5 absolute right-3 top-1/2 -translate-y-1/2 rotate-90 -z-[1]" />
+                    <ChevronIcon rotate="90deg" className="w-5 absolute right-3 top-1/2 -translate-y-1/2 -z-[1]" />
                   </div>
                 </div>
                 <div>

@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import useKey from "@/app/hooks/useKey";
+import useKey from "@/hooks/useKey";
 import product from "@/public/store/product.jpg";
-import ChevronIcon from "@/app/components/ChevronIcon";
-import Section from "@/app/components/Section";
+import ChevronIcon from "@/components/ChevronIcon";
+import Section from "@/components/Section";
 
 const products = [
   {
@@ -97,7 +97,7 @@ export default function RisingBrands2024ByJadetimes() {
               <button className="flex flex-row justify-between items-center gap-8 w-full py-4" onClick={() => handleKey(index)}>
                 <div className="text-black text-left lg:text-base">{productInformation.title}</div>
                 <div className="text-black">
-                  {key === index ? <ChevronIcon className="w-5 -rotate-90 duration-300" /> : <ChevronIcon className="w-5 rotate-90 duration-300" />}
+                  <ChevronIcon rotate="90deg" className={`w-5 duration-300 ${key === index ? "flip-horizontal" : ""}`.trim()} />
                 </div>
               </button>
               <div className={`duration-300 grid ${key === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>

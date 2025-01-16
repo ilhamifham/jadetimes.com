@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Section from "@/app/components/Section";
-import PricePlanCard from "@/app/components/PricePlanCard";
+import Section from "@/components/Section";
+import PricePlanCard from "@/components/PricePlanCard";
 import membership from "@/public/membership.png";
 
 const memberBenefits = [

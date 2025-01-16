@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import Section from "@/app/components/Section";
+import Section from "@/components/Section";
 import journalsBanner from "@/public/journals/journals-banner.png";
-import HeroImage from "@/app/components/HeroImage";
+import HeroImage from "@/components/HeroImage";
 import product from "@/public/journals/product.png";
-import ChevronIcon from "@/app/components/ChevronIcon";
-import FormButton from "@/app/components/FormButton";
-import ContactDetails from "@/app/components/ContactDetails";
+import ChevronIcon from "@/components/ChevronIcon";
+import FormButton from "@/components/FormButton";
+import ContactDetails from "@/components/ContactDetails";
 
 const products = [
   {
@@ -110,7 +110,7 @@ export default function Journals() {
                     <option value=""></option>
                     <option value="internships">Jadetimes Journals of Universal Studies</option>
                   </select>
-                  <ChevronIcon className="w-5 absolute right-3 top-1/2 -translate-y-1/2 rotate-90 -z-[1]" />
+                  <ChevronIcon rotate="90deg" className="w-5 absolute right-3 top-1/2 -translate-y-1/2 -z-[1]" />
                 </div>
               </div>
               <FormButton className="text-base lg:max-w-72 lg:mx-auto lg:py-2">Submit Your Application</FormButton>

@@ -1,18 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
-import UpdatesLink from "@/app/components/UpdatesLink";
-import LinkToMembership from "@/app/components/LinkToMembership";
-import PictureLink from "@/app/components/PictureLink";
-import FirstSlider from "@/app/components/home/FirstSlider";
-import YouTubePlaylist from "@/app/components/home/YouTubePlaylist";
-import ThirdSlider from "@/app/components/ThirdSlider";
-import ThirdBigArticles from "@/app/components/ThirdBigArticles";
-import FourthBigArticles from "@/app/components/FourthBigArticles";
-import YouTubeArticle from "@/app/components/YouTubeArticle";
-import Iframe from "@/app/components/Iframe";
-import Section from "@/app/components/Section";
-import YouTubeShorts from "@/app/components/home/YouTubeShorts";
-import posts from "@/app/data/posts";
+import UpdatesLink from "@/components/UpdatesLink";
+import LinkToMembership from "@/components/LinkToMembership";
+import PictureLink from "@/components/PictureLink";
+import FirstSlider from "@/components/home/FirstSlider";
+import YouTubePlaylist from "@/components/home/YouTubePlaylist";
+import ThirdSlider from "@/components/ThirdSlider";
+import ThirdBigArticles from "@/components/ThirdBigArticles";
+import FourthBigArticles from "@/components/FourthBigArticles";
+import YouTubeArticle from "@/components/YouTubeArticle";
+import Iframe from "@/components/Iframe";
+import Section from "@/components/Section";
+import YouTubeShorts from "@/components/home/YouTubeShorts";
+import posts from "@/data/posts";
 import SpecialGraphics from "@/public/adds/specialgraphics.png";
 
 export default function RootPage() {
@@ -73,7 +73,7 @@ export default function RootPage() {
             ))}
             <div className="hidden lg:flex flex-col col-span-2">
               <a href="https://specialgraphics.us/" className="block" target="_blank" aria-label="visit special graphics website">
-                <Image src={SpecialGraphics} alt="special graphics representation" className="aspect-square object-cover object-center" />
+                <Image src={SpecialGraphics} alt="visit special graphics website" className="aspect-square object-cover object-center" />
               </a>
               <UpdatesLink href="/news" className="px-3 py-2 w-full text-xs mt-5">
                 Latest Updates
@@ -175,12 +175,7 @@ export default function RootPage() {
           </section>
         </div>
         <div className="hidden lg:grid grid-cols-[repeat(19,_minmax(0,_1fr))] gap-5">
-          <section className="col-[span_14_/_span_14]">
-            <h3 className="mb-5 font-semibold text-xl">
-              Must Watch <span className="font-normal">Top 10 Ranking Segments</span>
-            </h3>
-            <YouTubePlaylist />
-          </section>
+          <YouTubePlaylist />
           <div className="col-span-5 mt-12">
             <div className="flex flex-col gap-5 mb-5">
               {posts.slice(0, 3).map((article, index) => (

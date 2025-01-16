@@ -1,4 +1,4 @@
-import SubNav from "@/app/components/SubNav";
+import SubNav from "@/components/SubNav";
 
 export default function NewsLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

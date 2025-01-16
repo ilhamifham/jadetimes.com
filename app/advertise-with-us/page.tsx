@@ -1,8 +1,8 @@
-import Address from "@/app/components/Address";
-import ShowCard from "@/app/components/ShowCard";
-import Form from "@/app/components/Form";
-import ContactDetails from "@/app/components/ContactDetails";
-import Section from "@/app/components/Section";
+import Address from "@/components/Address";
+import ShowCard from "@/components/ShowCard";
+import Form from "@/components/Form";
+import ContactDetails from "@/components/ContactDetails";
+import Section from "@/components/Section";
 
 const addresses = [
   {

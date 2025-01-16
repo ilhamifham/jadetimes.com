@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import useSwitch from "../hooks/useSwitch";
+import useSwitch from "../../hooks/useSwitch";
 
 interface SignInContexType {
   isSignIn: boolean;

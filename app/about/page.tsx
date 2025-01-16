@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import ContactDetails from "@/app/components/ContactDetails";
-import Form from "@/app/components/Form";
-import ShowCard from "@/app/components/ShowCard";
-import Section from "@/app/components/Section";
+import ContactDetails from "@/components/ContactDetails";
+import Form from "@/components/Form";
+import ShowCard from "@/components/ShowCard";
+import Section from "@/components/Section";
 import greenArchitecture from "@/public/green-architecture.png";
 import officeBuilding from "@/public/office-building.png";
-import HeroImage from "@/app/components/HeroImage";
+import HeroImage from "@/components/HeroImage";
 
 export default function AboutUs() {
   return (

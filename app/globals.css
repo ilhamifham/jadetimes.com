@@ -49,4 +49,8 @@
   .overflow-wrap-anywhere {
     overflow-wrap: anywhere;
   }
+
+  .flip-horizontal {
+    transform: rotate3d(0, 100, 0, 180deg);
+  }
 }

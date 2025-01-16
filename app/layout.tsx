@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "@/app/globals.css";
-import Header from "@/app/components/header/Header";
-import Footer from "@/app/components/Footer";
-import AuthForm from "@/app/components/authform/AuthForm";
+import Header from "@/components/header/Header";
+import Footer from "@/components/Footer";
+import AuthForm from "@/components/authform/AuthForm";
 import { SignInContextProvider } from "@/app/contexts/SignInContext";
 
 const poppins = Poppins({
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${poppins.variable} antialiased text-neutral-900`}>
+    <html lang="en" className={`${poppins.variable} antialiased text-neutral-900 scroll-pt-20 lg:scroll-pt-32`}>
       <body>
         <SignInContextProvider>
           <Header />

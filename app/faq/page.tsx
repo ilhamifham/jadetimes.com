@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import useKey from "../hooks/useKey";
-import ChevronIcon from "../components/ChevronIcon";
-import SearchIcon from "../components/SearchIcon";
+import useKey from "../../hooks/useKey";
+import ChevronIcon from "../../components/ChevronIcon";
+import SearchIcon from "../../components/SearchIcon";
 import faq from "@/public/faq.png";
-import HeroImage from "../components/HeroImage";
+import HeroImage from "../../components/HeroImage";
 
 const faqs = [
   {
@@ -73,7 +73,7 @@ export default function Faq() {
               <button className="flex flex-row justify-between items-center gap-8 w-full py-4" onClick={() => handleKey(index)}>
                 <div className="text-[#111111] text-left lg:text-lg">{faq.question} ?</div>
                 <div className="text-black">
-                  {key === index ? <ChevronIcon className="w-5 -rotate-90 duration-300" /> : <ChevronIcon className="w-5 rotate-90 duration-300" />}
+                  <ChevronIcon rotate="90deg" className={`w-5 duration-300 ${key === index ? "flip-horizontal" : ""}`.trim()} />
                 </div>
               </button>
               <div className={`duration-300 grid ${key === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>

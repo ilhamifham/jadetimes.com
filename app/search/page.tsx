@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import PictureLink from "@/app/components/PictureLink";
-import PaginationButtons from "@/app/components/PaginationButtons";
-import SearchIcon from "@/app/components/SearchIcon";
-import Section from "@/app/components/Section";
-import usePagination from "../hooks/usePagination";
-import posts from "@/app/data/posts";
+import PictureLink from "@/components/PictureLink";
+import PaginationButtons from "@/components/PaginationButtons";
+import SearchIcon from "@/components/SearchIcon";
+import Section from "@/components/Section";
+import usePagination from "../../hooks/usePagination";
+import posts from "@/data/posts";
 
 export default function Search() {
   const [currentIndex, visiblePages, pageItems, lastIndex, prevArticles, nextArticles, handlePrevDisabled, handleNextDisabled, handleCurrentArticle] =

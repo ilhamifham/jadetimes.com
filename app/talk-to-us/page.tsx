@@ -1,8 +1,8 @@
-import Form from "../components/Form";
-import ContactDetails from "../components/ContactDetails";
-import Section from "../components/Section";
+import Form from "../../components/Form";
+import ContactDetails from "../../components/ContactDetails";
+import Section from "../../components/Section";
 import reporter from "@/public/reporter.png";
-import HeroImage from "../components/HeroImage";
+import HeroImage from "../../components/HeroImage";
 
 export default function TalkToUs() {
   return (

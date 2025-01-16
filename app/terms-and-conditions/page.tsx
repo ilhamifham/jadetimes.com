@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Section from "../components/Section";
-import LinkToHome from "../components/LinkToHome";
+import Section from "../../components/Section";
+import LinkToHome from "../../components/LinkToHome";
 
 export default function TermsAndConditions() {
   return (

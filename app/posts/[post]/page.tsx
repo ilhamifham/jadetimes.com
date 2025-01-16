@@ -1,6 +1,6 @@
 import { Caudex } from "next/font/google";
 import Link from "next/link";
-import CopyLinkButton from "@/app/components/CopyLinkButton";
+import CopyLinkButton from "@/components/CopyLinkButton";
 
 const caudex = Caudex({
   weight: "400",

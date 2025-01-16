@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import Section from "@/app/components/Section";
+import Section from "@/components/Section";
 import storeBanner from "@/public/store/store-banner.png";
-import HeroImage from "@/app/components/HeroImage";
+import HeroImage from "@/components/HeroImage";
 import product from "@/public/store/product.jpg";
 
 const products = [
@@ -28,12 +28,7 @@ export default function Store() {
             <li key={product.id} className="relative max-w-72 sm:max-w-none text-neutral-900">
               {product.new && <div className="bg-accent text-white w-fit px-2 uppercase text-lg font-semibold absolute top-0 left-0 z-10">New</div>}
               <Link href={product.link} className="block group">
-                <div className="relative">
-                  <Image src={product.images} alt={product.name} width={660} height={880} className="aspect-[9_/_12]" />
-                  <div className="text-sm bg-white/80 backdrop-blur-sm p-3 absolute bottom-0 w-full text-center translate-y-full -z-[1] lg:duration-300 lg:group-hover:translate-y-0 lg:group-hover:z-0 lg:group-focus-visible:translate-y-0 lg:group-focus-visible:z-0">
-                    Quick View
-                  </div>
-                </div>
+                <Image src={product.images} alt={product.name} width={660} height={880} className="aspect-[9_/_12]" />
                 <div className="text-lg flex flex-col gap-2 pt-4 bg-white">
                   <h2 className="font-medium">{product.name}</h2>
                   <div className="text-neutral-700">${product.price}</div>
