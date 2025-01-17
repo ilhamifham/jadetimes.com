@@ -4,7 +4,7 @@ import useSwitch from "@/hooks/useSwitch";
 import CloseButton from "@/components/CloseButton";
 import Register from "@/components/authform/Register";
 import LogIn from "@/components/authform/LogIn";
-import { useSignInContext } from "@/app/contexts/SignInContext";
+import useSignInContext from "@/hooks/useSignInContext";
 
 const SignIn = () => {
   const { isSignIn, handleSignInOff } = useSignInContext();

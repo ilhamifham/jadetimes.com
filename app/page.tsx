@@ -89,7 +89,7 @@ export default function RootPage() {
           target="_blank"
           aria-label="visit digit us tec global website"
         >
-          <video autoPlay loop muted playsInline width={117} height={439}>
+          <video autoPlay loop muted playsInline>
             <source src="/adds/digitustecglobal.mp4" type="video/mp4" />
           </video>
         </a>
@@ -99,7 +99,7 @@ export default function RootPage() {
           target="_blank"
           aria-label="visit special printers website"
         >
-          <video autoPlay loop muted playsInline width={117} height={439}>
+          <video autoPlay loop muted playsInline>
             <source src="/adds/specialprinters.mp4" type="video/mp4" />
           </video>
         </a>

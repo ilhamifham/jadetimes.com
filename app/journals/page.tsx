@@ -29,7 +29,7 @@ export default function Journals() {
           {products.map((product) => (
             <li key={product.id} className="relative max-w-72 sm:max-w-none text-neutral-900">
               <Link href={product.link} className="block group">
-                <Image src={product.images} alt={product.name} width={660} height={880} className="aspect-[9_/_12]" />
+                <Image src={product.images} alt={product.name} className="aspect-[9_/_12]" />
                 <div className="text-lg flex flex-col gap-2 pt-4 bg-white">
                   <h2 className="font-medium">{product.name}</h2>
                   <div className="text-neutral-700 text-sm">{product.volume}</div>

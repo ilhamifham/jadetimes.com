@@ -44,7 +44,7 @@ const FirstSlider = ({ articles }: { articles: Post[] }) => {
               </Link>
               <p className="line-clamp-1 text-base">{articles[0].title}</p>
             </div>
-            <div className="text-black absolute top-1/3 right-4 flex cursor-pointer" onClick={handleNextSlide} aria-hidden tabIndex={-1}>
+            <div className="text-black absolute top-1/3 right-4 flex cursor-pointer" onClick={handleNextSlide} tabIndex={-1}>
               <ChevronIcon className="w-9" />
             </div>
           </article>
@@ -67,7 +67,7 @@ const FirstSlider = ({ articles }: { articles: Post[] }) => {
               </Link>
               <p className="line-clamp-1 text-base">{articles[1].title}</p>
             </div>
-            <div className="text-black absolute top-1/3 left-4 flex cursor-pointer" onClick={handlePreviousSlide} aria-hidden tabIndex={-1}>
+            <div className="text-black absolute top-1/3 left-4 flex cursor-pointer" onClick={handlePreviousSlide} tabIndex={-1}>
               <ChevronIcon rotate="180deg" className="w-9" />
             </div>
           </article>

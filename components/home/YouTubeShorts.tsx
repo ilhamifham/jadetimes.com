@@ -44,9 +44,7 @@ const YouTubeShorts = () => {
         setVideos(data);
       } catch (error) {
         if (error instanceof Error) {
-          setError("Error occured while fetching the playlist");
-        } else {
-          setError("An unknown error occurred");
+          setError(error.message);
         }
       } finally {
         setLoading(false);

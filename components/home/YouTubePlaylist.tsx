@@ -21,6 +21,8 @@ const YouTubePlaylist = () => {
   const [YouTubePlaylist, setYouTubePlaylist] = useState<Video[][]>([]);
   const [scrollRef, handleNextSlide, handlePreviousSlide] = useCarousel();
   const [isPlay, handlePlayOpen, handlePlayClose] = useSwitch();
+  const [prev, setIsPrev] = useState(true);
+  const [next, setIsNext] = useState(false);
 
   const updateCurrentVideo = useCallback(
     (index: number) => {
@@ -36,14 +38,12 @@ const YouTubePlaylist = () => {
   useEffect(() => {
     const getVideos = async () => {
       try {
-        const res = await fetch("/api/youtubetop10playlist");
+        const res = await fetch("/api/youtubeplaylist");
         const data = await res.json();
         setVideos(data);
       } catch (error) {
         if (error instanceof Error) {
-          setError("Error occured while fetching the playlist");
-        } else {
-          setError("An unknown error occurred");
+          setError(error.message);
         }
       } finally {
         setLoading(false);
@@ -59,7 +59,15 @@ const YouTubePlaylist = () => {
       playlist.push(videos.slice(i, i + 4));
     }
     setYouTubePlaylist(playlist);
-  }, [videos, updateCurrentVideo]);
+    scrollRef.current?.addEventListener("scroll", () => {
+      if (scrollRef.current) {
+        setIsPrev(scrollRef.current?.scrollLeft === 0);
+      }
+      if (scrollRef.current) {
+        setIsNext(scrollRef.current?.scrollWidth - 1 <= scrollRef.current?.scrollLeft + scrollRef.current?.clientWidth);
+      }
+    });
+  }, [videos, updateCurrentVideo, scrollRef]);
 
   function handleCurrentVideo(index: number) {
     if (index !== currentVideo.index) {
@@ -95,7 +103,9 @@ const YouTubePlaylist = () => {
   if (error) {
     return (
       <div className="col-[span_14_/_span_14]">
-        <div className="mb-5 h-7 w-96 bg-red-50 border border-red-300"></div>
+        <h3 className="mb-5 font-semibold text-xl">
+          Must Watch <span className="font-normal">Top 10 Ranking Segments</span>
+        </h3>
         <div className="aspect-video mb-5 bg-red-50 border border-red-300 text-accent text-lg flex items-center justify-center">{error}</div>
         <div className="grid grid-cols-4 gap-5 w-full">
           {Array.from({ length: 4 }, (_, index) => index).map((_, index) => (
@@ -157,8 +167,8 @@ const YouTubePlaylist = () => {
               <div className="text-sm" key={video.index}>
                 <div className="relative">
                   <div
-                    className={`aspect-video border border-neutral-300 relative ${
-                      video.index !== currentVideo.index ? "cursor-pointer" : "cursor-auto"
+                    className={`aspect-video border border-neutral-300 relative duration-300 ${
+                      video.index !== currentVideo.index ? "cursor-pointer hover:bg-[#000000AA]" : "cursor-auto bg-[#000000AA]"
                     }`}
                     onClick={() => handleCurrentVideo(video.index)}
                   >
@@ -169,7 +179,6 @@ const YouTubePlaylist = () => {
                       height={180}
                       className="absolute top-0 -z-[1]"
                     />
-                    <div className="w-full h-full bg-[#000000AA]"></div>
                   </div>
                   <div className="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     {isPlay && currentVideo.index === video.index ? (
@@ -192,18 +201,22 @@ const YouTubePlaylist = () => {
         ))}
       </div>
       <div className="relative flex mt-6">
-        <button className={`flex flex-row flex-nowrap items-center gap-3 text-sm text-black`} onClick={handlePreviousSlide}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 rotate-[135deg]" viewBox="0 0 16 16">
-            <path d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0z" />
-          </svg>
-          Prev
-        </button>
-        <button className={`flex flex-row flex-nowrap items-center gap-3 text-sm text-black ml-auto`} onClick={handleNextSlide}>
-          Next
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 -rotate-45" viewBox="0 0 16 16">
-            <path d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0z" />
-          </svg>
-        </button>
+        {!prev && (
+          <button className={`flex flex-row flex-nowrap items-center gap-3 text-sm text-black`} onClick={handlePreviousSlide}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 rotate-[135deg]" viewBox="0 0 16 16">
+              <path d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0z" />
+            </svg>
+            Prev
+          </button>
+        )}
+        {!next && (
+          <button className={`flex flex-row flex-nowrap items-center gap-3 text-sm text-black ml-auto`} onClick={handleNextSlide}>
+            Next
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 -rotate-45" viewBox="0 0 16 16">
+              <path d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0z" />
+            </svg>
+          </button>
+        )}
       </div>
     </section>
   );

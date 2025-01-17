@@ -4,7 +4,7 @@ import "@/app/globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 import AuthForm from "@/components/authform/AuthForm";
-import { SignInContextProvider } from "@/app/contexts/SignInContext";
+import SignInContextProvider from "@/contexts/SignInContext";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],

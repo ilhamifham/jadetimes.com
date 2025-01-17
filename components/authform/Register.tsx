@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/logo/logo-black.png";
-import { useSignInContext } from "@/app/contexts/SignInContext";
+import useSignInContext from "@/hooks/useSignInContext";
 import FormButton from "@/components/FormButton";
 
 const Register = ({ handleLogInOn }: { handleLogInOn: () => void }) => {

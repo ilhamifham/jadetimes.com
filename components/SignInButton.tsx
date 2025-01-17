@@ -1,6 +1,6 @@
 "use client";
 
-import { useSignInContext } from "@/app/contexts/SignInContext";
+import useSignInContext from "@/hooks/useSignInContext";
 import useStopScroll from "@/hooks/useStopScroll";
 
 const SignInButton = ({ className }: { className: string }) => {
