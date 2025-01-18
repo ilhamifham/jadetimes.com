@@ -146,6 +146,7 @@ const YouTubeShorts = () => {
             className="absolute text-black bg-white border border-neutral-300 w-10 h-10 items-center justify-center shadow-lg rounded-full duration-300 opacity-0 peer-hover:opacity-100 hover:opacity-100 focus:opacity-100 flex top-1/2 -translate-y-1/2 focus:rounded-full right-9"
             onClick={handleNextSlide}
           >
+            <span className="sr-only">Next slide</span>
             <ChevronIcon className="w-7 translate-x-[2px]" />
           </button>
         )}
@@ -154,6 +155,7 @@ const YouTubeShorts = () => {
             className="absolute text-black bg-white border border-neutral-300 w-10 h-10 items-center justify-center shadow-lg rounded-full duration-300 opacity-0 peer-hover:opacity-100 hover:opacity-100 focus:opacity-100 flex top-1/2 -translate-y-1/2 focus:rounded-full left-9"
             onClick={handlePreviousSlide}
           >
+            <span className="sr-only">Previous slide</span>
             <ChevronIcon rotate="180deg" className="w-7 translate-x-[2px]" />
           </button>
         )}
@@ -175,7 +177,7 @@ const YouTubeShorts = () => {
                     width={1250}
                     height={703}
                   />
-                  <div className="bg-[#00000080] w-full h-full flex flex-col items-center justify-center gap-4 text-center">
+                  <div className="bg-[#00000080] w-full h-full flex flex-col items-center justify-center gap-4 text-center p-4">
                     <div className="text-neutral-300">Jadetimes</div>
                     <p className="text-white font-semibold text-2xl xl:text-3xl">{currentVideo.title}</p>
                     <PlayButton className="w-12 text-white" onClick={handlePlayOn} />

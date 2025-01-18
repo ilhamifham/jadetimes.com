@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import Section from "@/components/Section";
 import PricePlanCard from "@/components/PricePlanCard";
 import membership from "@/public/membership.png";
+import MembershipButton from "@/components/MembershipButton";
 
 const memberBenefits = [
   {
@@ -72,13 +72,14 @@ export default function Membership() {
             Join a community of like minded individuals. Participate in forums and discussion groups to share ideas, network, and collaborate with
             other JadeTimes members.
           </p>
-          <Link
+          {/* <Link
             href="/membership"
             target="_self"
             className="text-sm md:text-xs bg-neutral-900 border border-neutral-900 text-white px-6 py-4 inline-block tracking-widest mt-6 lg:py-3 duration-300 lg:hover:bg-white lg:hover:text-black"
           >
             Subscribe Now
-          </Link>
+          </Link> */}
+          <MembershipButton />
         </div>
       </section>
       <section className="p-4 text-sm md:text-center lg:text-base max-w-[900px]  lg:max-w-[1000px] mx-auto">

@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="mt-6 mb-5 lg:flex lg:flex-row lg:justify-between lg:mt-10 lg:mb-14">
           <div className="mb-4 lg:mb-0">
             <LinkToHome className="block order-2 w-44 mx-auto">
-              <Image src={Logo} alt="jadetimes logo" width={176} height={30} />
+              <Image src={Logo} alt="" />
             </LinkToHome>
             <ul className="flex flex-col gap-4 text-center text-neutral-900 text-sm text-nowrap mb-4 mt-5 lg:hidden">
               {mobileNavigationPaths.map((path) => (

@@ -14,6 +14,7 @@ import Section from "@/components/Section";
 import YouTubeShorts from "@/components/home/YouTubeShorts";
 import posts from "@/data/posts";
 import SpecialGraphics from "@/public/adds/specialgraphics.png";
+import OnlyLargeScreen from "@/components/OnlyLargeScreen";
 
 export default function RootPage() {
   return (
@@ -175,7 +176,9 @@ export default function RootPage() {
           </section>
         </div>
         <div className="hidden lg:grid grid-cols-[repeat(19,_minmax(0,_1fr))] gap-5">
-          <YouTubePlaylist />
+          <OnlyLargeScreen>
+            <YouTubePlaylist />
+          </OnlyLargeScreen>
           <div className="col-span-5 mt-12">
             <div className="flex flex-col gap-5 mb-5">
               {posts.slice(0, 3).map((article, index) => (
@@ -410,7 +413,9 @@ export default function RootPage() {
         </div>
       </Section>
       <ThirdSlider articles={posts.slice(0, 3)} />
-      <YouTubeShorts />
+      <OnlyLargeScreen>
+        <YouTubeShorts />
+      </OnlyLargeScreen>
     </>
   );
 }

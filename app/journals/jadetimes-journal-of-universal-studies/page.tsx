@@ -283,7 +283,9 @@ export default function JadetimesJournalOfUniversalStudies() {
                     <option value=""></option>
                     <option value="internships">Jadetimes Journals of Universal Studies</option>
                   </select>
-                  <ChevronIcon rotate="90deg" className="w-5 absolute right-3 top-1/2 -translate-y-1/2 -z-[1]" />
+                  <div className="absolute top-4 right-3 -z-[1]">
+                    <ChevronIcon rotate="90deg" className="w-5" />
+                  </div>
                 </div>
               </div>
               <FormButton className="text-base lg:max-w-72 lg:mx-auto lg:py-2">Submit Your Application</FormButton>

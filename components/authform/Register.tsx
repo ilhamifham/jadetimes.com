@@ -13,7 +13,7 @@ const Register = ({ handleLogInOn }: { handleLogInOn: () => void }) => {
 
   return (
     <div className="max-w-[640px] mx-auto">
-      <Image src={Logo} width={1424} height={288} alt="jadetimes logo" className="mx-auto w-64" priority />
+      <Image src={Logo} alt="" className="mx-auto w-64" priority />
       <div className="font-semibold text-xl text-heading mt-8 text-center md:text-4xl">Register for a Jadetimes Account</div>
       <p className="text-sm text-center mt-2">You must be 18 or over to register for a Jadetimes account</p>
       <form>

@@ -15,7 +15,7 @@ const Header = () => {
       <div className="p-4 flex flex-row items-center justify-between max-w-[1376px] mx-auto">
         <div className="relative max-w-[1280px] flex flex-row items-center gap-4 justify-between flex-1 px-4">
           <LinkToHome className="block w-44 absolute left-1/2 -translate-x-1/2">
-            <Image src={Logo} width={1424} height={288} alt="jadetimes" priority />
+            <Image src={Logo} alt="" priority />
           </LinkToHome>
           <div className="hidden lg:flex flex-row gap-4 items-center">
             <LinkToMembership className="font-semibold text-[0.625rem]" />
