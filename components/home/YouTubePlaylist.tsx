@@ -19,10 +19,8 @@ const YouTubePlaylist = () => {
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState<Video>({ index: 0, videoId: "", title: "" });
   const [YouTubePlaylist, setYouTubePlaylist] = useState<Video[][]>([]);
-  const [scrollRef, handleNextSlide, handlePreviousSlide] = useCarousel();
+  const [scrollRef, handleNextSlide, handlePreviousSlide, prev, next, whileScroll] = useCarousel();
   const [isPlay, handlePlayOpen, handlePlayClose] = useSwitch();
-  const [prev, setIsPrev] = useState(true);
-  const [next, setIsNext] = useState(false);
 
   const updateCurrentVideo = useCallback(
     (index: number) => {
@@ -59,15 +57,7 @@ const YouTubePlaylist = () => {
       playlist.push(videos.slice(i, i + 4));
     }
     setYouTubePlaylist(playlist);
-    scrollRef.current?.addEventListener("scroll", () => {
-      if (scrollRef.current) {
-        setIsPrev(scrollRef.current?.scrollLeft === 0);
-      }
-      if (scrollRef.current) {
-        setIsNext(scrollRef.current?.scrollWidth - 1 <= scrollRef.current?.scrollLeft + scrollRef.current?.clientWidth);
-      }
-    });
-  }, [videos, updateCurrentVideo, scrollRef]);
+  }, [videos, updateCurrentVideo]);
 
   function handleCurrentVideo(index: number) {
     if (index !== currentVideo.index) {
@@ -160,27 +150,24 @@ const YouTubePlaylist = () => {
           </div>
         )}
       </div>
-      <div className="flex flex-row gap-5 overflow-x-hidden snap-x snap-mandatory" ref={scrollRef}>
+      <div className="flex flex-row gap-5 overflow-x-hidden snap-x snap-mandatory" ref={scrollRef} onScroll={whileScroll}>
         {YouTubePlaylist.map((videos, index) => (
           <div className="grid grid-cols-4 w-full flex-none gap-5 snap-end" key={index}>
             {videos.map((video) => (
-              <div className="text-sm" key={video.index}>
-                <div className="relative">
+              <div className="text-sm cursor-pointer" key={video.index} onClick={() => handleCurrentVideo(video.index)}>
+                <div className="aspect-video border border-neutral-300 relative">
+                  <Image
+                    src={`https://i.ytimg.com/vi/${video.videoId}/mqdefault.jpg`}
+                    alt=""
+                    width={320}
+                    height={180}
+                    className="absolute top-0 -z-[1]"
+                  />
                   <div
-                    className={`aspect-video border border-neutral-300 relative duration-300 ${
-                      video.index !== currentVideo.index ? "cursor-pointer hover:bg-[#000000AA]" : "cursor-auto bg-[#000000AA]"
+                    className={`bg-[#000000AA] h-full w-full text-white flex items-center justify-center duration-300 ${
+                      video.index === currentVideo.index ? "opacity-100" : "opacity-0 hover:opacity-100"
                     }`}
-                    onClick={() => handleCurrentVideo(video.index)}
                   >
-                    <Image
-                      src={`https://i.ytimg.com/vi/${video.videoId}/mqdefault.jpg`}
-                      alt=""
-                      width={320}
-                      height={180}
-                      className="absolute top-0 -z-[1]"
-                    />
-                  </div>
-                  <div className="absolute text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     {isPlay && currentVideo.index === video.index ? (
                       <div>Now Playing</div>
                     ) : (
@@ -201,7 +188,7 @@ const YouTubePlaylist = () => {
         ))}
       </div>
       <div className="relative flex mt-6">
-        {!prev && (
+        {prev && (
           <button className={`flex flex-row flex-nowrap items-center gap-3 text-sm text-black`} onClick={handlePreviousSlide}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 rotate-[135deg]" viewBox="0 0 16 16">
               <path d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0z" />
@@ -209,7 +196,7 @@ const YouTubePlaylist = () => {
             Prev
           </button>
         )}
-        {!next && (
+        {next && (
           <button className={`flex flex-row flex-nowrap items-center gap-3 text-sm text-black ml-auto`} onClick={handleNextSlide}>
             Next
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 -rotate-45" viewBox="0 0 16 16">

@@ -22,7 +22,7 @@ const YouTubeShorts = () => {
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState<Video>({ index: 0, videoId: "", title: "", description: "" });
-  const [scrollRef, handleNextSlide, handlePreviousSlide] = useCarousel();
+  const [scrollRef, handleNextSlide, handlePreviousSlide, prev, next, whileScroll] = useCarousel();
   const [isPlay, handlePlayOn, handlePlayOff] = useSwitch();
   const [isPlayScreen, handlePlayScreenOn, handlePlayScreenOff] = useSwitch();
   useStopScroll(isPlayScreen);
@@ -54,19 +54,15 @@ const YouTubeShorts = () => {
   }, []);
 
   function handleNextCurrentVideo() {
-    if (typeof currentVideo.index === "number") {
-      const index = currentVideo.index === videos.length - 1 ? videos.length - 1 : currentVideo.index + 1;
-      updateCurrentVideo(index);
-      handlePlayOff();
-    }
+    const index = currentVideo.index === videos.length - 1 ? videos.length - 1 : currentVideo.index + 1;
+    updateCurrentVideo(index);
+    handlePlayOff();
   }
 
   function handlePreviousCurrentVideo() {
-    if (typeof currentVideo.index === "number") {
-      const index = currentVideo.index === 0 ? 0 : currentVideo.index - 1;
-      updateCurrentVideo(index);
-      handlePlayOff();
-    }
+    const index = currentVideo.index === 0 ? 0 : currentVideo.index - 1;
+    updateCurrentVideo(index);
+    handlePlayOff();
   }
 
   if (loading) {
@@ -98,7 +94,11 @@ const YouTubeShorts = () => {
       }`}
     >
       <div className="relative p-5 mb-auto order-1">
-        <div className="flex flex-row overflow-x-hidden gap-5 snap-x snap-mandatory peer max-w-[2560px] mx-auto" ref={scrollRef}>
+        <div
+          className="flex flex-row overflow-x-hidden gap-5 snap-x snap-mandatory peer max-w-[2560px] mx-auto"
+          ref={scrollRef}
+          onScroll={whileScroll}
+        >
           {videos.map((video) => (
             <div key={video.index} className={`aspect-video flex-none w-72 snap-start ${isPlayScreen ? "border border-neutral-700" : ""}`.trim()}>
               <div className={`relative ${!isPlayScreen ? "mb-4" : ""}`.trim()}>
@@ -141,18 +141,22 @@ const YouTubeShorts = () => {
             </div>
           ))}
         </div>
-        <button
-          className="absolute text-black bg-white border border-neutral-300 w-10 h-10 items-center justify-center shadow-lg rounded-full duration-300 opacity-0 peer-hover:opacity-100 hover:opacity-100 focus:opacity-100 flex top-1/2 -translate-y-1/2 focus:rounded-full right-9"
-          onClick={handleNextSlide}
-        >
-          <ChevronIcon className="w-7 translate-x-[2px]" />
-        </button>
-        <button
-          className="absolute text-black bg-white border border-neutral-300 w-10 h-10 items-center justify-center shadow-lg rounded-full duration-300 opacity-0 peer-hover:opacity-100 hover:opacity-100 focus:opacity-100 flex top-1/2 -translate-y-1/2 focus:rounded-full left-9"
-          onClick={handlePreviousSlide}
-        >
-          <ChevronIcon rotate="180deg" className="w-7 translate-x-[2px]" />
-        </button>
+        {next && (
+          <button
+            className="absolute text-black bg-white border border-neutral-300 w-10 h-10 items-center justify-center shadow-lg rounded-full duration-300 opacity-0 peer-hover:opacity-100 hover:opacity-100 focus:opacity-100 flex top-1/2 -translate-y-1/2 focus:rounded-full right-9"
+            onClick={handleNextSlide}
+          >
+            <ChevronIcon className="w-7 translate-x-[2px]" />
+          </button>
+        )}
+        {prev && (
+          <button
+            className="absolute text-black bg-white border border-neutral-300 w-10 h-10 items-center justify-center shadow-lg rounded-full duration-300 opacity-0 peer-hover:opacity-100 hover:opacity-100 focus:opacity-100 flex top-1/2 -translate-y-1/2 focus:rounded-full left-9"
+            onClick={handlePreviousSlide}
+          >
+            <ChevronIcon rotate="180deg" className="w-7 translate-x-[2px]" />
+          </button>
+        )}
       </div>
       {isPlayScreen && (
         <div className="px-5 mt-auto max-w-[2560px] mx-auto">
